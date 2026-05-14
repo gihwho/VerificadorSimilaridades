@@ -1,0 +1,11 @@
+Para desenvolver qualquer solução computacional, é preciso dominar a lógica de programação, indo além dos conceitos básicos do
+capítulo anterior. As linguagens de programação possuem gramáticas rígidas e são menos expressivas que o português, exigindo que o
+programador saiba explorar essa limitação para escrever bons algoritmos.
+
+Um computador processa a entrada de dados e gera uma saída, mas o programador precisa definir como manipular esses dados na memória
+através de variáveis. Imagine o problema de contar quantos números um usuário digita. Como não sabemos a quantidade, combinamos que o
+número zero serve para encerrar a digitação. O zero não conta como dado válido, apenas como sinal de parada.
+
+Diferente da mente humana, que visualiza "5 8 3 9 0" e responde "4 números" instantaneamente, o computador processa um a um.
+A cada "ENTER", uma única variável é atualizada, perdendo o valor anterior. Usamos um comando de repetição que lê o número e incrementa
+ um contador, parando apenas quando o usuário digitar zero. Esse domínio das técnicas elementares é o objetivo deste capítulo.

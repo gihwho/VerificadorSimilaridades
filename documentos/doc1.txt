@@ -1,0 +1,81 @@
+Toda solução computacional para um dado problema é baseada no correto arranjo dos
+conceitos básicos vistos no capítulo anterior. Mas eles não são suficientes sem que se
+aprendam técnicas elementares baseadas em um conceito fundamental em computação: a lógica de programação.
+Um outro problema diz respeito às limitações das linguagens de programação, pois
+suas gramáticas são extremamente rígidas, ocorre que as linguagens de programação
+são menos expressivas do que as linguagens naturais, como o português por exemplo.
+Escrever algoritmos, e consequentemente programas, exige que o programador saiba
+explorar esta linguagem, digamos, mais pobre (comparada com as linguagens naturais)
+e neste sentido a lógica de programação é fundamental.
+Fazendo uma analogia com carros, saber que pisar no acelerador faz o carro andar
+mais rápido e que pisar no freio faz o carro desacelerar não implica em ser um bom
+motorista, muito menos um excelente piloto de fórmula 1.
+O objetivo deste capítulo é o domínio das técnicas elementares que possibilitarão
+posteriormente o desenvolvimento de algoritmos sofisticados.
+6.1 Lógica de programação
+Um computador pode ser definido como uma máquina que recebe uma entrada de
+dados, realiza um processamento deles e produz uma saída que é a solução do problema. Como sabemos, não existe computação sem um problema para ser resolvido.
+O programador deve elaborar um conjunto de instruções que manipulam os dados que
+estão em memória. Para isto é preciso compreender como é o processo de manipulação
+do ponto de vista da estrutura do computador.
+Tomemos um problema bem simples: queremos que o usuário digite alguns números inteiros, quantos ele queira, e ao final devemos imprimir quantos números foram
+digitados. Como o computador saberá que o usuário terminou de digitar números? É
+preciso definir como o usuário informa que não quer mais digitar números. Combinamos aqui que quando ele não mais quiser digitar números, vai digitar um zero. Este
+zero não deve contar como um número válido, ele só serve para terminar a entrada de
+dados. Logo, após a digitação do zero o programa deve informar quantos números o
+usuário tinha digitado antes.
+77
+78 CAPÍTULO 6. TÉCNICAS ELEMENTARES
+O que devemos pensar antes de tentar escrever o programa?
+• O programador só tem acesso à RAM através de variáveis;
+• As variáveis são declaradas enquanto o programador está digitando código.
+A primeira questão que surge é: se o programador não sabe quantas informações
+o usuário vai digitar, como saber a quantidade certa de variáveis que ele precisa
+declarar no cabeçalho do programa? A experiência sugere que esta pergunta parece
+intrigar os estudantes, aparentemente pois eles esquecem qual é o problema que está
+sendo resolvido! O problema é saber quantos números serão digitados pelo usuário,
+se soubéssemos quantos seriam não precisaríamos fazer um programa para isso!
+O computador não funciona como a mente humana. Humanos são capazes de
+visualizar e processar os dados, desde que não sejam muitos, de uma maneira global,
+ele tem acesso a todos os dados de uma só vez. Por exemplo, imagine que o usuário
+vai digitar o seguinte conjunto de informações:
+5 8 3 9 0
+Como são poucos dados, um ser humano não precisa fazer nenhuma conta, ele
+vê que existem cinco números, e sabe que o zero não conta, então já responde imediatamente: são 4 números.1 Mas o computador não funciona assim. Ele tem que
+processar as informações uma a uma. E por causa disso e também do problema de
+que não sabemos quantas informações serão digitadas, só resta uma alternativa: usar
+uma única variável.
+Como pode ser possível resolver este problema usando-se uma única variável?
+Usando-se lógica de programação! O segredo é pensar como o computador e tentar
+extrair um algoritmo deste processo. Vamos lá.
+• O usuário digita 5 e aperta ENTER;
+• O usuário digita 8 e aperta ENTER;
+• O usuário digita 3 e aperta ENTER;
+• O usuário digita 9 e aperta ENTER;
+• O usuário digita 0 e aperta ENTER;
+A cada ENTER a informação estará sendo processada por um comando read(n),
+onde n é uma variável do tipo integer. Notem que é a mesma variável sempre. Significa
+que a cada novo ENTER o conteúdo da variável n foi alterado.
+• Na primeira vez, n valerá 5;
+• Na próxima vez, n valerá 8 e o 5 foi perdido;
+1Beremir, protagonista do livro “O Homem que Calculava” era capaz de dizer quantos pássaros
+havia numa revoada no céu.
+6.1. LÓGICA DE PROGRAMAÇÃO 79
+• Na próxima vez, n valerá 3 e o 8 foi perdido;
+• Na próxima vez, n valerá 9 e o 3 foi perdido;
+• Na próxima vez, n valerá 0 e o 9 foi perdido;
+• Como foi digitado um 0, devemos parar o processo e imprimir o resultado.
+Isto indica que, a cada ENTER, devemos contar um a mais. Porém, um a mais
+a partir de qual informação? Ora, nós humanos estamos habituados a iniciar nossas
+contagens com o número 1. É preciso também notar que isso naturalmente sugere o
+uso de um comando de repetição. Qual processo deve ser repetido?
+• Ler um número;
+• Contar um a mais.
+Sabemos também, do nosso aprendizado do capítulo anterior, que um processo
+repetitivo deve ter uma variável de controle e que também deve ter um critério de
+parada. Nosso critério de parada parece óbvio: é quando o usuário digitar um zero.
+Uma reflexão adicional: devemos lembrar de duas informações diferentes, uma
+delas é o número que está sendo digitado, a outra é um contador que inicia em 1 e é
+incrementado a cada novo número informado.
+Já temos todos os elementos necessários para um rascunho do algoritmo, vejamos
+na figura 6.1 como isso pode ser materializado em um programa em Pascal.

@@ -1,0 +1,8 @@
+A lógica de programação é o pilar fundamental para criar algoritmos e programas de computador eficientes. Embora as linguagens
+naturais, como o português, sejam ricas e expressivas, as linguagens de programação são restritas e possuem gramáticas extremamente
+rígidas. O desafio do programador é traduzir soluções complexas para essa linguagem mais pobre.
+
+Fazer uma analogia com carros ajuda a entender: saber acelerar ou frear não faz de ninguém um piloto de Fórmula 1. Da mesma forma,
+conhecer comandos soltos não significa saber programar. É o correto arranjo dos conceitos básicos e o domínio das técnicas elementares
+que permitem o desenvolvimento de software sofisticado. Sem a lógica de programação para estruturar o pensamento, o computador não
+consegue processar a entrada de dados corretamente para produzir a saída desejada.

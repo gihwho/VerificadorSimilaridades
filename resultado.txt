@@ -1,0 +1,4 @@
+=== VERIFICADOR DE SIMILARIDADE DE TEXTOS ===
+Comparando: doc1.txt <-> doc4.txt
+Similaridade calculada: 0.15
+Metrica utilizada: Cosseno

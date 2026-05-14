@@ -1,0 +1,8 @@
+A infraestrutura física de uma rede de computadores é composta por cabos, roteadores e switches que permitem a transmissão
+de dados em alta velocidade. Diferente do processamento local de software, a comunicação entre máquinas depende de protocolos
+rígidos como o TCP/IP para garantir que a informação chegue ao destino correto.
+
+Quando um usuário envia um arquivo pela internet, os dados são divididos em pequenos pacotes que viajam por
+caminhos distintos até serem remontados no computador de destino. A latência e a largura de banda são fatores cruciais
+nesse processo. Enquanto o software foca na manipulação lógica da informação, o hardware de redes foca na integridade
+física do sinal elétrico ou óptico durante o transporte.
