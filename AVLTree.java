@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class AVLTree extends BST {
 
-    // Variável global da árvore para contar o total de rotacões simples e duplas feitas
     private int totalRotacoesSimples = 0;
     private int totalRotacoesDuplas = 0;
 

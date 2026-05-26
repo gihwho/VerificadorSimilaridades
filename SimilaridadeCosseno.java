@@ -1,6 +1,6 @@
  public class SimilaridadeCosseno{
 
-    public double calcularSimilaridade(Arquivo docA, Arquivo docB) {
+    public double calcularSimilaridade(Documento docA, Documento docB) {
 
         double produtoEscalar = calcularProdutoEscalar(docA.getFrequencias(), docB.getFrequencias());
         double magnitudeA = calcularMagnitude(docA.getFrequencias());

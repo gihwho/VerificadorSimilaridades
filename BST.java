@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 
 public class BST {
+
+    protected No raiz;
+
     public No getRaiz() {
         return raiz;
     }
@@ -11,7 +14,7 @@ public class BST {
 
     protected No raiz;
 
-    public void inserir(double chave, Resultado resultado) {
+    public void inserir(Resultado resultado) {
         raiz = inserirRecursivo(raiz, resultado);
     }
 
@@ -35,13 +38,13 @@ public class BST {
         return no;
     }
 
-    public void emOrdemReverso() {
-        emOrdemReversoRecursivo(this.raiz);
+    public void impressaoReverseOrdem() {
+        impressaoReverseOrdemRecursivo(this.raiz);
     }
 
-    private void emOrdemReversoRecursivo(No no) {
+    private void impressaoReverseOrdemRecursivo(No no) {
         if (no != null) {
-            emOrdemReversoRecursivo(no.getDireita());
+            impressaoReverseOrdemRecursivo(no.getDireita());
 
             ArrayList<Resultado> pares = no.getPares();
 
@@ -50,7 +53,7 @@ public class BST {
                 System.out.println(s);
             }
 
-            emOrdemReversoRecursivo(no.getEsquerda());
+            impressaoReverseOrdemRecursivo(no.getEsquerda());
         }
     }
 }
