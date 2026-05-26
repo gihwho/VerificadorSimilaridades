@@ -1,13 +1,12 @@
 public class ComparadorDeArquivos {
 
-    private final SimilaridadeEstrategia similaridadeEstrategia;
+    private final SimilaridadeCosseno similaridade;
 
-    public ComparadorDeArquivos(SimilaridadeEstrategia similaridadeEstrategia) {
-        this.similaridadeEstrategia = similaridadeEstrategia;
+    public ComparadorDeArquivos(SimilaridadeCosseno similaridade) {
+        this.similaridade = similaridade;
     }
 
     public double calcularSimilaridade(Arquivo docA, Arquivo docB) {
-
-        return this.similaridadeEstrategia.calcularSimilaridade(docA, docB);
+        return this.similaridade.calcularSimilaridade(docA, docB);
     }
 }

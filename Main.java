@@ -48,12 +48,12 @@ public class Main {
 
         try {
             Set<String> stopWords = carregarStopWords();
-            ComparadorDeDocumentos comparadorDeDocumentos = new ComparadorDeDocumentos(new SimilaridadeCosseno());
+            ComparadorDeArquivos comparadorDeArquivos = new ComparadorDeArquivos(new SimilaridadeCosseno());
 
             switch (modo) {
-                case "lista": executarModoLista(configuracao, stopWords, comparadorDeDocumentos); break;
-                case "topK": executarModoTopK(configuracao, stopWords, comparadorDeDocumentos); break;
-                case "busca": executarModoBusca(configuracao, stopWords, comparadorDeDocumentos); break;
+                case "lista": executarModoLista(configuracao, stopWords, comparadorDeArquivos); break;
+                case "topK": executarModoTopK(configuracao, stopWords, comparadorDeArquivos); break;
+                case "busca": executarModoBusca(configuracao, stopWords, comparadorDeArquivos); break;
             }
         }
         catch (IOException ex) {
@@ -99,19 +99,19 @@ public class Main {
         return documentos;
     }
 
-    public static void executarModoLista(Configuracao configuracao, Set<String> stopWords, ComparadorDeDocumentos comparadorDeDocumentos) {
+    public static void executarModoLista(Configuracao configuracao, Set<String> stopWords, ComparadorDeArquivos comparadorDeArquivos) {
 
         ArrayList<Documento> documentos = recuperarArquivosETransformarParaDocumento(configuracao);
 
         if(documentos.size() > 0){
-            processarDocumentos(documentos, stopWords, comparadorDeDocumentos, null, configuracao.getLimiar());
+            processarDocumentos(documentos, stopWords, comparadorDeArquivos, null, configuracao.getLimiar());
         }
         else {
             System.out.println("Não foi possível completar a leitura dos arquivos contidos no diretório: " + configuracao.getDiretorio().getPath());
         }
     }
 
-    public static void executarModoTopK(Configuracao configuracao, Set<String> stopWords, ComparadorDeDocumentos comparadorDeDocumentos) {
+    public static void executarModoTopK(Configuracao configuracao, Set<String> stopWords, ComparadorDeArquivos comparadorDeArquivos) {
         int topK = 0;
 
         try {
@@ -125,14 +125,14 @@ public class Main {
         ArrayList<Documento> documentos = recuperarArquivosETransformarParaDocumento(configuracao);
 
         if(documentos.size() > 0) {
-            processarDocumentos(documentos, stopWords, comparadorDeDocumentos, topK, configuracao.getLimiar());
+            processarDocumentos(documentos, stopWords, comparadorDeArquivos, topK, configuracao.getLimiar());
         }
         else {
             System.out.println("Não foi possível completar a leitura dos arquivos contidos no diretório: " + configuracao.getDiretorio().getPath());
         }
     }
 
-    public static void executarModoBusca(Configuracao configuracao, Set<String> stopWords, ComparadorDeDocumentos comparadorDeDocumentos) {
+    public static void executarModoBusca(Configuracao configuracao, Set<String> stopWords, ComparadorDeArquivos comparadorDeArquivos) {
 
         if (configuracao.getArgs().length < 5) {
             System.out.println("Erro: informe dois arquivos para comparar!!");
@@ -160,7 +160,7 @@ public class Main {
             doc1.processarArquivo(stopWords);
             doc2.processarArquivo(stopWords);
 
-            double similaridade = comparadorDeDocumentos.calcularSimilaridade(doc1, doc2);
+            double similaridade = comparadorDeArquivos.calcularSimilaridade(doc1, doc2);
 
             String saida = "";
             saida += "=== VERIFICADOR DE SIMILARIDADE DE TEXTOS ===\n";
@@ -177,7 +177,7 @@ public class Main {
     }
 
     public static void processarDocumentos(ArrayList<Documento> documentos, Set<String> stopWords,
-                                           ComparadorDeDocumentos comparador, Integer topK, double limiar)
+                                           ComparadorDeArquivos comparador, Integer topK, double limiar)
     {
         try {
             for(Documento documento : documentos)
