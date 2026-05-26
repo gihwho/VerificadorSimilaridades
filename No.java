@@ -1,6 +1,20 @@
 import java.util.ArrayList;
 
 class No {
+
+    private double chave;
+    private int altura;
+    private ArrayList<Resultado> pares;
+    private No direita;
+    private No esquerda;
+
+    public No(Resultado res) {
+        this.chave = res.getSimilaridade();
+        this.altura = 1;
+        this.pares = new ArrayList<>();
+        this.pares.add(res);
+    }
+
     public double getChave() {
         return chave;
     }
@@ -41,16 +55,4 @@ class No {
         this.esquerda = esquerda;
     }
 
-    private double chave;
-    private int altura;
-    private ArrayList<Resultado> pares;
-    private No direita;
-    private No esquerda;
-
-    public No(Resultado res) {
-        this.chave = res.getSimilaridade();
-        this.altura = 1;
-        this.pares = new ArrayList<>();
-        this.pares.add(res);
-    }
 }
