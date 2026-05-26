@@ -21,11 +21,11 @@ public class TesteDocumento {
             
             Documento doc = new Documento(caminhoDocumento, "");
 
-            HashTable<String, Integer> tabela = doc.getTabelaFrequencias();
+            HashTable<String, Integer> tabela = doc.getFrequencias();
             
             System.out.println("\n--- Relatório de Processamento ---");
             System.out.println("Arquivo processado: " );
-            System.out.println("Total de palavras únicas (vocabulário): " + tabela.getSize());
+            System.out.println("Total de palavras únicas (vocabulário): " + tabela.getTamanho());
 
             String palavraTeste = "computador"; 
             Integer frequencia = tabela.get(palavraTeste);
