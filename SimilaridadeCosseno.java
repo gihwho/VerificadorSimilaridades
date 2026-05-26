@@ -1,39 +1,46 @@
- public class SimilaridadeCosseno implements ISimilaridadeEstrategia {
+ public class SimilaridadeCosseno{
 
-    @Override
-    public double calcularSimilaridade(Documento docA, Documento docB) {
+    public double calcularSimilaridade(Arquivo docA, Arquivo docB) {
 
-        double produtoEscalar = calcularProdutoEscalar(docA, docB);
-        double magnitudeDocA = calcularMagnitude(docA);
-        double magnitudeDocB = calcularMagnitude(docB);
+        double produtoEscalar = calcularProdutoEscalar(docA.getFrequencias(), docB.getFrequencias());
+        double magnitudeA = calcularMagnitude(docA.getFrequencias());
+        double magnitudeB = calcularMagnitude(docB.getFrequencias());
 
-        return produtoEscalar / (magnitudeDocA * magnitudeDocB);
+        return produtoEscalar / (magnitudeA * magnitudeB);
     }
 
-    private static double calcularProdutoEscalar(Documento docA, Documento docB) {
-        double somatorio = 0.0;
+    private static double calcularProdutoEscalar(HashTable<String, Integer> frequenciasA, HashTable<String, Integer> frequenciasB) {
+        double total = 0.0;
 
-        for(String palavra : docA.getTabelaFrequencias().getChaves()) {
-            Integer freqA = docA.getTabelaFrequencias().get(palavra);
-            Integer freqB = docB.getTabelaFrequencias().get(palavra);
+        for(String palavra : frequenciasA.getChaves()) {
+            Integer freqItemA = frequenciasA.get(palavra);
+            Integer freqItemB = frequenciasB.get(palavra);
 
-            somatorio += (freqA == null ? 0 : freqA) * (freqB == null ? 0 : freqB);
+            if(Integer.valueOf(freqItemA).equals(null)){
+                freqItemA = 0;
+            }
+            if(Integer.valueOf(freqItemB).equals(null)){
+                freqItemB = 0;
+            }
+
+            total += freqItemA * freqItemB;
         }
-
-        return somatorio;
+        return total;
     }
 
-    private static  double calcularMagnitude(Documento doc) {
-        double somatorio = 0.0;
+    private static  double calcularMagnitude(HashTable<String, Integer> frequencias) {
+        double total = 0.0;
 
-        HashTable<String, Integer> tabelaHash = doc.getTabelaFrequencias();
+        for(String palavra : frequencias.getChaves()) {
+            int freq = frequencias.get(palavra);
 
-        for(String palavra : tabelaHash.getChaves()) {
-            int frequencia = tabelaHash.get(palavra);
-
-            somatorio += Math.pow(frequencia, 2);
+            if(Integer.valueOf(freq).equals(null)){
+                continue;
+            }
+            
+            total += freq * freq;
         }
 
-        return Math.sqrt(somatorio);
+        return Math.sqrt(total);
     }
 }

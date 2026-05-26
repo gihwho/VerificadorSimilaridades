@@ -1,10 +1,10 @@
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Set; // Set para as stop words
+import java.util.Set; 
 import java.text.Normalizer;
 
-public class Documento {
+public class Arquivo {
     private String nome;
     private String caminho;
     private HashTable<String, Integer> frequencias;
@@ -23,7 +23,7 @@ public class Documento {
         return frequencias;
     }
 
-    public Documento(String nome, String caminho) {
+    public Arquivo(String nome, String caminho) {
         this.nome = nome;
         this.caminho = caminho;
     }
