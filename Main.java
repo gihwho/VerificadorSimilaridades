@@ -229,7 +229,7 @@ public class Main {
         String s = String.format("=== VERIFICADOR DE SIMILARIDADE DE TEXTOS ===\n" +
                                 "Total de documentos processados: %d\n" +
                                 "Total de pares comparados: %d\n" +
-                                "Função hash utilizada: Polinomial (base 31)\n" +
+                                "Função hash utilizada: Polinomial (base 37)\n" +
                                 "Métrica de similaridade: Cosseno\n\n" +
                                 "Pares com similaridade >= %.2f\n" +
                                 "---------------------------------\n" +
