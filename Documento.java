@@ -48,15 +48,18 @@ public class Documento {
         return removeSimbolos(removeAcentos(textoOriginal.toLowerCase()));   
     }
 
+    // separa o 'a' do '´' em "á" e remove acentos
     private String removeAcentos(String texto){
         texto = Normalizer.normalize(texto, Normalizer.Form.NFD);
         return texto.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
     }
 
+    // remove tudo que nao for letra (a-z), numero (0-9) ou espaço
     private String removeSimbolos(String texto){
         return texto.replaceAll("[^a-z0-9\\s]", "");
     }
 
+    // transformacao de texto em tokens
     private String[] fragmentar(String textoNormalizado) {
         return textoNormalizado.trim().split("\\s+");
     }

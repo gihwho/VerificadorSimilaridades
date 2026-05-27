@@ -12,7 +12,7 @@ public class SimilaridadeCosseno{
     private static double calcularProdutoEscalar(HashTable<String, Integer> frequenciasA, HashTable<String, Integer> frequenciasB) {
         double total = 0.0;
 
-        for(String palavra : frequenciasA.getChaves()) {
+        for(String palavra : frequenciasA.getKeys()) {
             Integer freqItemA = frequenciasA.get(palavra);
             Integer freqItemB = frequenciasB.get(palavra);
 
@@ -31,7 +31,7 @@ public class SimilaridadeCosseno{
     private static  double calcularMagnitude(HashTable<String, Integer> frequencias) {
         double total = 0.0;
 
-        for(String palavra : frequencias.getChaves()) {
+        for(String palavra : frequencias.getKeys()) {
             Integer freq = frequencias.get(palavra);
 
             if(freq == null){

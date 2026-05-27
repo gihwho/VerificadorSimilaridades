@@ -4,15 +4,15 @@ Total de pares comparados: 10
 Função hash utilizada: Polinomial (base 31)
 Métrica de similaridade: Cosseno
 
-Pares com similaridade >= 1.00
+Pares com similaridade >= 0.30
 ---------------------------------
 doc5.txt <-> doc4.txt = 1.00
-
-Pares com menor similaridade
----------------------------------
 doc1.txt <-> doc2.txt = 0.55
 doc1.txt <-> doc3.txt = 0.38
 doc2.txt <-> doc3.txt = 0.33
+
+Pares com menor similaridade
+---------------------------------
 doc5.txt <-> doc1.txt = 0.16
 doc4.txt <-> doc1.txt = 0.16
 doc5.txt <-> doc3.txt = 0.13

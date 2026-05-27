@@ -51,25 +51,25 @@ public class HashTable<C, V> {
         return (codigo & 0x7FFFFFFF) % capacidade;
     }
 
-    // considera a ORDEM
+    // Polinomial base 37 considera a ORDEM
     private int hashCaso1(C chave) {
         String s = (String) chave;
         int hash = 0;
  
         for (int i = 0; i < s.length(); i++) {
             int c = s.charAt(i);
-            hash = 37 * hash + (c * c); 
+            hash = 37 * hash + c; 
         }
         return hash;
     }
 
-    // NAO considera a ordem
+    // Método de Soma Simples, não considera a ordem
     private int hashCaso2(C chave) {
         String s = (String) chave;
         int hash = 0;
  
         for (int i = 0; i < s.length(); i++){
-            hash = (hash + s.charAt(i)) % this.capacidade;
+            hash = hash + s.charAt(i);
         }
         return hash;
     }
@@ -138,7 +138,7 @@ public class HashTable<C, V> {
     }
 
     // retorna todas as chaves
-    public ArrayList<C> getChaves() {
+    public ArrayList<C> getKeys() {
         ArrayList<C> chaves = new ArrayList<>(tamanho);
  
         for (LinkedList<Entrada<C, V>> bucket : tabela) {
