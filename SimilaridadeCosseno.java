@@ -1,4 +1,4 @@
- public class SimilaridadeCosseno{
+public class SimilaridadeCosseno{
 
     public double calcularSimilaridade(Documento docA, Documento docB) {
 

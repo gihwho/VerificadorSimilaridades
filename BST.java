@@ -2,8 +2,6 @@ import java.util.ArrayList;
 
 public class BST {
 
-    protected No raiz;
-
     public No getRaiz() {
         return raiz;
     }
