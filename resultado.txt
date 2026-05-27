@@ -1,7 +1,7 @@
 === VERIFICADOR DE SIMILARIDADE DE TEXTOS ===
 Total de documentos processados: 5
 Total de pares comparados: 10
-Função hash utilizada: Polinomial (base 31)
+Função hash utilizada: Polinomial (base 37)
 Métrica de similaridade: Cosseno
 
 Pares com similaridade >= 0.30
