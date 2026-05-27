@@ -3,6 +3,9 @@ Nome: Antônio Costa Satiro de Souza - RA: 10723636
 Nome: Giovanna Borges Coelho - RA: 10756784
 */
 
+// modelo entrada: java Main <diretorio_documentos> <limiar> <modo> [argumentos_opcionais]
+// modos: lista, topK, busca
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;

@@ -69,7 +69,7 @@ public class HashTable<C, V> {
         int hash = 0;
  
         for (int i = 0; i < s.length(); i++){
-            hash = ( hash * s.charAt(i)) % this.tamanho;
+            hash = (hash + s.charAt(i)) % this.capacidade;
         }
         return hash;
     }

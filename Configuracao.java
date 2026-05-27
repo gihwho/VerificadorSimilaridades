@@ -14,7 +14,7 @@ public class Configuracao {
     }
 
     public String getArg(int index) {
-        if(index > 0 && index < args.length) {
+        if(index >= 0 && index < args.length) {
             return args[index];
         }
 

@@ -16,10 +16,10 @@ public class SimilaridadeCosseno{
             Integer freqItemA = frequenciasA.get(palavra);
             Integer freqItemB = frequenciasB.get(palavra);
 
-            if(Integer.valueOf(freqItemA).equals(null)){
+            if(freqItemA == null){
                 freqItemA = 0;
             }
-            if(Integer.valueOf(freqItemB).equals(null)){
+            if(freqItemB == null){
                 freqItemB = 0;
             }
 
@@ -32,9 +32,9 @@ public class SimilaridadeCosseno{
         double total = 0.0;
 
         for(String palavra : frequencias.getChaves()) {
-            int freq = frequencias.get(palavra);
+            Integer freq = frequencias.get(palavra);
 
-            if(Integer.valueOf(freq).equals(null)){
+            if(freq == null){
                 continue;
             }
             

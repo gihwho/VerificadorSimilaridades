@@ -28,7 +28,7 @@ public class Documento {
         this.caminho = caminho;
     }
 
-    
+    // gera tabela de frequências
     public void analisar(Set<String> stopWords) throws IOException {
         
         String[] palavras = fragmentar(limpar(carregarTexto(caminho)));
@@ -48,13 +48,11 @@ public class Documento {
         return removeSimbolos(removeAcentos(textoOriginal.toLowerCase()));   
     }
 
-    // helper de limpar()
     private String removeAcentos(String texto){
         texto = Normalizer.normalize(texto, Normalizer.Form.NFD);
         return texto.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
     }
 
-    // helper de limpar()
     private String removeSimbolos(String texto){
         return texto.replaceAll("[^a-z0-9\\s]", "");
     }
@@ -63,6 +61,7 @@ public class Documento {
         return textoNormalizado.trim().split("\\s+");
     }
 
+    // contagem de frequências das palavras
     private void contarOcorrencias(String[] tokens, Set<String> stopWords) {
         for (String token : tokens) {
 
@@ -79,11 +78,12 @@ public class Documento {
         }
     }
 
+    // retorna frequência de um token
     private int getOrDefault(String token){
 
-        int valor = frequencias.get(token);
+        Integer valor = frequencias.get(token);
 
-        if(Integer.valueOf(valor).equals(null)){
+        if(valor == null){
             return 0;
         }
 
