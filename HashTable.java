@@ -48,7 +48,7 @@ public class HashTable<C, V> {
                 codigo = hashCaso2(chave);
                 break;
         }
-        return (codigo & 0x7FFFFFFF) % capacidade;
+        return Math.abs(codigo) % capacidade;
     }
 
     // Polinomial base 37 considera a ORDEM
