@@ -1,5 +1,6 @@
 public class SimilaridadeCosseno{
 
+    // calculo de similaridade entre dois documentos
     public double calcularSimilaridade(Documento docA, Documento docB) {
 
         double produtoEscalar = calcularProdutoEscalar(docA.getFrequencias(), docB.getFrequencias());
@@ -9,6 +10,7 @@ public class SimilaridadeCosseno{
         return produtoEscalar / (magnitudeA * magnitudeB);
     }
 
+    // calcula produto escalar entre as frequencias de palavras de dois documentos
     private static double calcularProdutoEscalar(HashTable<String, Integer> frequenciasA, HashTable<String, Integer> frequenciasB) {
         double total = 0.0;
 
@@ -28,6 +30,7 @@ public class SimilaridadeCosseno{
         return total;
     }
 
+    // calcula a magnitude das frequencias de um documento
     private static  double calcularMagnitude(HashTable<String, Integer> frequencias) {
         double total = 0.0;
 
